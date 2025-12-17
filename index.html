@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 Meses de Amor ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* CABEÇALHO */
+header {
+    padding: 50px 20px 30px;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+#contador {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* SEÇÕES */
+section {
+    background: rgba(255,255,255,0.15);
+    margin: 20px;
+    padding: 30px 20px;
+    border-radius: 20px;
+}
+
+/* CARROSSEL */
+.carousel {
+    position: relative;
+    max-width: 320px;
+    margin: auto;
+}
+
+.carousel img {
+    width: 100%;
+    border-radius: 15px;
+    display: none;
+}
+
+.carousel img.active {
+    display: block;
+}
+
+/* BOTÃO */
+button {
+    background: #fff;
+    color: #ff4f7b;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* CARTA */
+#carta {
+    display: none;
+    animation: fade 0.8s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* CORAÇÕES */
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {transform: translateY(0); opacity: 1;}
+    100% {transform: translateY(100vh); opacity: 0;}
+}
+
+footer {
+    padding: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MÚSICA -->
+<audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+    <h1>6 Meses de Amor ❤️</h1>
+    <p>Desde <strong>04/01/2026</strong></p>
+    <div id="contador"></div>
+</header>
+
+<section>
+    <h2>Nossos Momentos 📸</h2>
+    <div class="carousel">
+        <!-- TROQUE AS FOTOS AQUI -->
+        <img src="fotos/foto1.jpg" class="active">
+        <img src="fotos/foto2.jpg">
+        <img src="fotos/foto3.jpg">
+        <img src="fotos/foto4.jpg">
+        <img src="fotos/foto5.jpg">
+        <img src="fotos/foto6.jpg">
+        <img src="fotos/foto7.jpg">
+        <img src="fotos/foto8.jpg">
+        <img src="fotos/foto9.jpg">
+        <img src="fotos/foto10.jpg">
+        <img src="fotos/foto11.jpg">
+        <img src="fotos/foto12.jpg">
+    </div>
+</section>
+
+<section>
+    <button onclick="mostrarCarta()">Eu te amo ❤️</button>
+
+    <div id="carta">
+        <h2>Feliz 6 Meses 💌</h2>
+        <p>
+            Hoje completamos seis meses de uma história linda que estamos construindo juntos.
+            Cada momento ao seu lado é especial, cada sorriso seu é meu lugar favorito.
+            Obrigado(a) por ser meu amor, meu apoio e minha felicidade.
+            Que venham muitos meses, anos e sonhos ao seu lado.
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>Com amor, <strong>Seu Nome ❤️</strong></p>
+</footer>
+
+<script>
+// DATA DO INÍCIO DO NAMORO (EDITE AQUI)
+const inicio = new Date("2025-07-04T00:00:00");
+
+// CONTADOR
+function atualizarContador() {
+    const agora = new Date();
+    const diff = agora - inicio;
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("contador").innerHTML =
+        `Juntos há ${dias} dias, ${horas} horas e ${minutos} minutos 💖`;
+}
+setInterval(atualizarContador, 1000);
+atualizarContador();
+
+// CARROSSEL
+let index = 0;
+const imagens = document.querySelectorAll(".carousel img");
+
+setInterval(() => {
+    imagens[index].classList.remove("active");
+    index = (index + 1) % imagens.length;
+    imagens[index].classList.add("active");
+}, 3000);
+
+// CARTA
+function mostrarCarta() {
+    document.getElementById("carta").style.display = "block";
+}
+
+// CORAÇÕES
+function criarCoracao() {
+    const c = document.createElement("div");
+    c.classList.add("heart");
+    c.innerHTML = "❤️";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
+}
+setInterval(criarCoracao, 300);
+</script>
+
+</body>
+</html>
