@@ -103,10 +103,26 @@ footer {
 
 <body>
 
-<audio autoplay loop>
-  <source src="musica/amor.mp3" type="audio/mpeg">
-    
+<audio id="musica" loop>
+    <source src="musica/amor.mp3" type="audio/mpeg">
 </audio>
+
+<button onclick="document.getElementById('musica').play()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+">
+▶ Tocar música
+</button>
+
 
 <header>
     <h1>6 Meses de Amor ❤️</h1>
