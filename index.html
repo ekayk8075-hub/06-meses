@@ -123,6 +123,17 @@ footer {
 ▶ Tocar música
 </button>
 
+    
+<script>
+function playMusica() {
+    const audio = document.getElementById("musica");
+    audio.volume = 1.0;
+    audio.play().catch(err => {
+        alert("Erro ao tocar música: " + err.message);
+    });
+}
+</script>
+
 
 <header>
     <h1>6 Meses de Amor ❤️</h1>
